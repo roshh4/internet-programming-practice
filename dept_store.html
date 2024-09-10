@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script>
+            function checkCreditLim()
+            {
+                const AccNo = document.getElementById("AccNo").value;
+                const bal = parseInt(document.getElementById("balance").value);
+                const charges = parseInt(document.getElementById("charges").value);
+                const cred = parseInt(document.getElementById("cred").value);
+                const allowcredlim = parseInt(document.getElementById("allowcredlim").value);
+                const res = document.getElementById("res");
+                const newBal = bal + charges - cred;
+                res.innerHTML = `<p>New Balance is: ${newBal}</p>`;
+                if (newBal > allowcredlim) 
+                {
+                    res.innerHTML += `<p style="color: red; font-weight: bold;">Credit limit exceeded.</p>`;
+                } 
+                else 
+                {
+                    res.innerHTML += `<p style="color: green; font-weight: bold;">Credit limit is within range.</p>`;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Credit limit checker</h1>
+        <form>
+            <label>Account number</label>
+            <input type="number" id = "AccNo" required>
+            <br>
+            <label>Balance at the beginning of the month</label>
+            <input type="number" id = "balance" required>
+            <br>
+            <label>Total Charges:</label>
+            <input type="number" id = "charges" required>
+            <br>
+            <label>Total credits:</label>
+            <input type="number" id = "cred" required>
+            <br>
+            <label>Allowed credit limit:</label>
+            <input type="number" id = "allowcredlim" required>
+            <br>
+            <button type="button" onclick="checkCreditLim()">Check Credit Limit</button>        
+        </form>
+
+        <div id = "res">HELLO</div>
+    </body>
+</html>
