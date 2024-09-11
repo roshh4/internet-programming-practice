@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script>
+            const display = () => {
+                const number = document.getElementById("no").value;
+                document.getElementById("area").value = number.substring(1,4);
+                document.getElementById("num").value = number.substring(5,8) + number.substring(9,13);
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <label>enter number with area code in correct format</label>
+            <input id = "no" type="text">
+            <br>
+            <button type="button" onclick="display()">Extract</button>
+        </form>
+        <textarea id="area"></textarea>
+        <textarea id="num"></textarea>
+    </body>
+</html>
