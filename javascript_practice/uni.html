@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <script>
+            function validation()
+            {
+                const name = document.getElementById("name").value;
+                const addy = document.getElementById("addy").value;
+                const email = document.getElementById("email").value;
+                const outputName = document.getElementById("outputName");
+                const outputAddy = document.getElementById("outputAddy");
+                const outputEmail = document.getElementById("outputEmail");
+                if(name === "")
+                {
+                    outputName.innerHTML = `invalid input`;
+                }
+                if(addy === "")
+                {
+                    outputAddy.innerHTML = `invalid input`;
+                }
+                if(!email.includes("@") && !email.includes("."))
+                {
+                    outputEmail.innerHTML = `invalid input`;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <h1>FEEDBACK FORM</h1>
+            <label>Name:</label>
+            <input type="text" id="name">
+            <div id="outputName"></div>
+            <br>
+            <label>Address:</label>
+            <textarea type="text" id="addy"></textarea>
+            <div id="outputAddy"></div>
+            <br>
+            <label>email:</label>
+            <input type="text" id="email">
+            <div id="outputEmail"></div>
+            <br>
+            <h2>what did u like the most about our campus?</h2>
+            <br>
+            <input type="checkbox" id="students" value="students">
+            <label>students</label>
+            <input type="checkbox" id="location" value="location">
+            <label>location</label>
+            <br>
+            <input type="checkbox" id="campus" value="campus">
+            <label>campus</label>
+            <br>
+            <input type="checkbox" id="atmosphere" value="atmosphere">
+            <label>atmosphere</label>
+            <input type="checkbox" id="dorm_rooms" value="dorm rooms">
+            <label>dorm rooms</label>
+            <br>
+            <input type="checkbox" id="sports" value="sports">
+            <label>sports</label>
+            <br>
+            <h2>How did u become interested in our</h2>
+            <input type="radio" name="reason" id="friends" value="friends">
+            <label for="friends, television, Internet and other.">friends</label>
+            <br>
+            <input type="radio" name="reason" id="television" value="friends">
+            <label for="friends, television, Internet and other.">friends</label>
+            <br>
+            <input type="radio" name="reason" id="Internet" value="Internet">
+            <label for="friends, television, Internet and other.">Internet</label>
+            <br>
+            <input type="radio" name="reason" id="other" value="other">
+            <label for="other.">other</label>
+            <br>
+            <button type="button" onclick="validation()">validate</button>
+        </form>
+    </body>
+</html>
