@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script>
+            function validation()
+            {
+                const email = document.getElementById("email").value;
+                const gender = document.getElementById("gender").value;
+                const age = parseInt(document.getElementById("age").value);
+                const numoutput = document.getElementById("numberOutput");
+                const genderOutput = document.getElementById("genderOutput");
+                const emailOutput = document.getElementById("emailOutput");
+                if(!(gender == "female" || gender == "male"))
+                {
+                    genderOutput.innerHTML = `gender entered is invalid`;
+                }
+                if(!(age != NaN && age >= 1 && age <=100))
+                {
+                    numoutput.innerHTML = `age entered is invalid`;
+                }
+                if (!email.includes("@") || !email.includes("."))
+                {
+                    emailOutput.innerHTML = `email entered is invalid`;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <label>enter email id</label>
+            <input type="email" id ="email">
+            <div id ="emailOutput" style="color: red;"></div>
+            <br>
+            <label>enter age id</label>
+            <input type="number" id ="age">
+            <div id ="numberOutput" style="color: red;"></div>
+            <br>
+            <label>enter gender id</label>
+            <input type="gender" id ="gender">
+            <div id ="genderOutput" style="color: red;"></div>
+            <br>
+            <button type="button" onclick = "validation()">VALIDATE</button>
+        </form>
+        
+    </body>
+</html>
