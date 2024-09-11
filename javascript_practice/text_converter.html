@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script>
+            function conversion()
+            {
+                const word = document.getElementById("word").value;
+                const output = document.getElementById("output");
+                output.innerHTML = `${word.toUpperCase()}<br>${word.toLowerCase()}`;
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <label>enter a word</label>
+            <input id = "word" type="text">
+            <br>
+            <button type="button" onclick="conversion()">convert</button>
+        </form>
+        <div id="output"></div>
+    </body>
+</html>
