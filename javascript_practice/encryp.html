@@ -1,0 +1,32 @@
+<htm>
+    <head>
+        <script>
+            function Encryption()
+            {
+                let nonenc = parseInt(document.getElementById("nonenc").value);
+                const nonen  = document.getElementById("nonenc").value;
+                const result = document.getElementById("encryptedData");
+                let s = "";
+                while(nonenc >0)
+                {
+                    let rem = nonenc%10;
+                    let r = parseInt((rem + 7)%10);
+                    s = r + s;
+                    nonenc = parseInt(nonenc/10);
+                }
+                result.innerHTML = `The encrypted data is ${s}`;
+            }
+        </script>
+    </head>
+    <body>
+        <H1>Data Encryption</H1>
+        <form>
+            <label>enter the data to be encrypted</label>
+            <input type="number" id="nonenc">
+            <br>
+            <button type="button" onclick="Encryption()">Encrypted</button>
+            <br>
+            <div id = "encryptedData"></div>
+        </form>
+    </body>
+</htm>
