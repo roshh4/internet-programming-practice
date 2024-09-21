@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>display date</title>
+</head>
+<body>
+    <form action="Demo" method="get"> 
+    	Enter value:<input type = "number" name="value">
+    	type of currency:
+    	<select name = "currency">
+    		<option value = "dollar">dollar</option>
+    		<option value = "rupee">rupee</option>
+    	</select>
+        <input type="submit" value="convert"/>
+    </form>
+</body>
+</html>
+
+package demo;
+
+import java.io.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.*;
+
+@WebServlet("/Demo")
+public class Demo extends HttpServlet {
+ 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    	response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        
+        String input = request.getParameter("value");
+        String cur = request.getParameter("currency");
+        
+        double value = Double.parseDouble(input);
+        
+        if(cur == "dollar")
+        {
+        	out.print(input + "dollars = " + 0.085 * value + "euros");
+        	out.print(input + "dollars = " + input + "dollars");
+        }
+        else
+        {
+        	out.print(input + "rupees = " + 0.75 * value + "dollars");
+        	out.print("<br>");
+        	out.print(input + "rupees = " + 0.011 * value + "euro");
+        }
+    }
+}
