@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>display date</title>
+</head>
+<body>
+    <h1>Welcome to Our Website!</h1>
+    <p>Click the button below to view the total number of visits:</p>
+    <a href="VisitCounter"><button>Check Total Visits</button></a>
+</body>
+</html>
+
+package demo;
+
+import java.io.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.*;
+
+@WebServlet("/Demo")
+public class Demo extends HttpServlet {
+	
+	private static int visitCount = 0;
+ 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    	response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        
+        visitCount++;
+        out.println("<h1>Total Visits: " + visitCount + "</h1>");
+        out.println("<p>Thank you for visiting our website!</p>");
+    }
+}
