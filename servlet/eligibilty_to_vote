@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>display date</title>
+</head>
+<body>
+    <form action="Demo" method="get"> 
+    	Enter your name:<input type = "text" name="name">
+    	Enter your age:<input type = "number" name="age">
+        <input type="submit" value="convert"/>
+    </form>
+</body>
+</html>
+
+package demo;
+
+import java.io.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.*;
+
+@WebServlet("/Demo")
+public class Demo extends HttpServlet {
+ 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    	response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        
+        String name = request.getParameter("name");
+        int age = Integer.parseInt(request.getParameter("age"));
+        
+        if(age > 18)
+        {
+        	out.print("<p>you are over the age of 18, your eligible to vote</p>");
+        }
+        else
+        {
+        	out.print("<p>you are not over the age of 18, your not eligible to vote</p>");
+        }
+    }
+}
