@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>    
+        <script>
+            $(document).ready(function(){
+                $("p.rosh").mouseenter(function(){
+                    $(this).text("u selected this!");
+                });
+                $("p.rosh").mouseleave(function()
+                {
+                    $(this).text("hu");
+                });
+                $("#new").click(function(){
+                    alert("u clicked on this");
+                });
+                $("h1").dblclick(function(){
+                    alert("double clicked this!");
+                });
+                $('input').keydown(function(){
+                    $(".rose").html("<h1>hihiii</h1>");
+                });
+                $('input').keyup(function(event){
+                    $(".rose").html("<h1>byee</h1>")
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>sajdsjfd</h1>
+        <p class="rosh">hu</p>
+        <p id="new">hi guys</p>
+        <input type="text" name = "hi">
+        <h1 class = "rose"></h1>
+    </body>
+</html>
