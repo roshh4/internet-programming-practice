@@ -1,46 +1,43 @@
-<html>
-    <head>
-        <script>
-            function validate()
-            {
-                let name = document.getElementById("name").value;
-                const output = document.getElementById("out");
-                output.innerHTML="<h1>"+name+"</h1>";
-                let gen = document.getElementsByName("gender");
-                let gender = "";
-                for(let i =0; i<gen.length; i++)
-                {
-                    if(gen[i].checked)
-                    {
-                        gender = gen[i].value;
-                    }
-                }
-                console.log(gender);
-                let hob = document.getElementsByName("hob");
-                let hobs = [];
-                for(let i =0; i<hob.length; i++)
-                {
-                    if(hob[i].checked)
-                    {
-                        hobs.push(hob[i].value);
-                    }
-                }
-                console.log(hobs);
-            }
-        </script>
-    </head>
-    <body>
-        <form>
-            Name:<input type="text" id="name" name="name">
-            <br>
-            gender:<input type="radio" value="female" name ="gender">female
-            <input type="radio" value="male" name ="gender">male
-            <br>
-            hobbies:<input type="checkbox" value = "swimming" name="hob">swim
-            <input type="checkbox" value = "reading" name="hob">reading
-            <input type="checkbox" value = "singing" name="hob">singing
-            <button type = "button" onclick="validate()">sub</button>
-        </form>
-        <div id="out"></div>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Events in JavaScript</title>
+    <style>
+        .event-box {
+            width: 100%;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            margin: 20px auto;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const eventOutput = document.getElementById("event-output");
+
+            // keydown event
+            document.addEventListener("keydown", function(event) {
+                eventOutput.innerText = `Key pressed: ${event.key} (Key code: ${event.keyCode})`;
+                eventOutput.style.backgroundColor = "lightgreen";
+            });
+
+            // keyup event
+            document.addEventListener("keyup", function(event) {
+                eventOutput.innerText = `Key released: ${event.key} (Key code: ${event.keyCode})`;
+                eventOutput.style.backgroundColor = "lightblue";
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Keyboard Events in JavaScript</h1>
+    
+    <div id="event-output" class="event-box">
+        Press any key...
+    </div>
+</body>
 </html>
